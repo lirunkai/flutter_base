@@ -1,17 +1,3 @@
-# flutter_demo
+# AppBar
 
-A new Flutter project.
-
-## Getting Started
-
-可以clone到本地 然后切换分支去查看每个Widget的相关示例.
-
-## todo
-
-+ AppBar
-   + ~~PopupMenuButton~~
-   + ~~PopupMenuItem~~
-   + TabBar
-
-
-## 实例项目
+![](images/app_bar.png)
