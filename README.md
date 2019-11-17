@@ -1,16 +1,25 @@
 # flutter_base
 
-A new Flutter project.
+A new Flutter demo project.
 
-## Getting Started
+###  hero_page 可练习
 
-This project is a starting point for a Flutter application.
+1. ModalRoute
+2. InkWell
+3. SingleChildScrollView 可滚动容器 一次性渲染
+4. comment_util
+5.  Navigator
+6.  SafeArea
+7.  TickerProviderStateMixin
+8.  AnnotatedRegion
+9.  SystemUiOverlayStyle
+10.  ClipOval
+11.  GestureDetector
+12.  AnimationController
+13.  MaterialPageRoute
+14.  ScaleTransition
+15.  Stack
+16.  Positioned
 
-A few resources to get you started if this is your first Flutter project:
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
