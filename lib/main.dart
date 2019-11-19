@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:flutter_base/hero_page.dart';
+import 'package:flutter_base/logo_app.dart';
 
 void main() => runApp(MyApp());
 
@@ -17,7 +18,8 @@ class MyApp extends StatelessWidget {
       ),
       home: MyHomePage(title: 'Flutter Demo Home Page'),
       routes: {
-        'HeroPage': (context) => HeroPage()
+        'HeroPage': (context) => HeroPage(),
+        'LogoApp': (context) => LogoApp()
       }
     );
   }
@@ -52,6 +54,12 @@ class _MyHomePageState extends State<MyHomePage> {
                     navigateTo('HeroPage');
                   },
                   child: Text('HeroPage'),
+                ),
+                RaisedButton(
+                  child: Text('Logo Animation'),
+                  onPressed: () {
+                    navigateTo('LogoApp');
+                  },
                 )
               ],
             ),
