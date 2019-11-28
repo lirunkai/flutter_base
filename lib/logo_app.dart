@@ -16,15 +16,7 @@ class _LogoAppState extends State<LogoApp> with SingleTickerProviderStateMixin {
       vsync: this
     );
     // 定义动画的起始值 及应用controller
-    animation = new Tween(begin: 0.0, end: 300.0).animate(controller)
-      ..addStatusListener((status) {
-        if (status == AnimationStatus.completed) {
-          controller.reverse();
-        } else if(status == AnimationStatus.dismissed) {
-          controller.forward();
-        }
-      });
-    //  执行动画
+    animation = new Tween(begin: 0.0, end: 300.0).animate(controller);
     controller.forward();
   }
 
