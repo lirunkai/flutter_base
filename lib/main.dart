@@ -12,8 +12,12 @@ import 'package:flutter_base/animation/animated_icon_page.dart';
 import 'package:flutter_base/animation/animated_list_page.dart';
 import 'package:flutter_base/animation/animted_switch.dart';
 
+// element
+import 'package:flutter_base/element/text.dart';
+
 // wrap
 import 'package:flutter_base/wrap/card.dart';
+import 'package:flutter_base/wrap/scaffold.dart';
 
 void main() => runApp(MyApp());
 
@@ -30,6 +34,9 @@ class MyApp extends StatelessWidget {
       ),
       home: MyHomePage(title: 'Flutter Demo Home Page'),
       routes: {
+        'scaffoldDemo': (context) => ScaffoldDemo(),
+        'textDemo': (context) => TextDemo(),
+        'scaffoldDemo': (context) => ScaffoldDemo(),
         'HeroPage': (context) => HeroPage(),
         'LogoApp': (context) => LogoApp(),
         'animatedContainer': (context) => AnimationContainerDemo(),
@@ -67,6 +74,18 @@ class _MyHomePageState extends State<MyHomePage> {
           child: SingleChildScrollView(
             child: Column(
               children: <Widget>[
+                RaisedButton(
+                  onPressed: () {
+                    navigateTo('scaffoldDemo');
+                  },
+                  child: Text('scaffoldDemo'),
+                ),
+                RaisedButton(
+                  onPressed: () {
+                    navigateTo('textDemo');
+                  },
+                  child: Text('textDemo', style: TextStyle(color: Colors.red),),
+                ),
                 RaisedButton(
                   onPressed: () {
                     navigateTo('HeroPage');
@@ -119,6 +138,24 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
           ),
         ),
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        items: const <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            title: Text('home')
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.business),
+            title: Text('business')
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.school),
+            title: Text('school')
+          )
+        ],
+        currentIndex: 1,
+        selectedItemColor: Colors.amber[800]
       ),
     );
   }
