@@ -18,6 +18,7 @@ import 'package:flutter_base/element/text.dart';
 // wrap
 import 'package:flutter_base/wrap/card.dart';
 import 'package:flutter_base/wrap/scaffold.dart';
+import 'package:flutter_base/wrap/scaffoldDemo2.dart';
 
 void main() => runApp(MyApp());
 
@@ -44,7 +45,8 @@ class MyApp extends StatelessWidget {
         'animatedIconPage': (context) => AnimatedIconPage(),
         'animatedList': (context) => AnimatedListPage(),
         'safeArea': (context) => SafeAreaDemo(),
-        'animatedSwitch': (context) => AnimatedSwitcherPage()
+        'animatedSwitch': (context) => AnimatedSwitcherPage(),
+        'count': (ccontext) => Count()
       }
     );
   }
@@ -61,7 +63,10 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  final List<String> demos = <String>['scaffoldDemo', 'textDemo', 'scaffoldDemo', 'HeroPage', 'LogoApp', 'animatedContainer'];
+  final List<String> demos = <String>[
+    'scaffoldDemo', 'textDemo', 'scaffoldDemo', 'HeroPage', 'LogoApp', 'animatedContainer',
+    'count'
+  ];
   @override
   Widget build(BuildContext context) {
     screenWidth = MediaQuery.of(context).size.width;
