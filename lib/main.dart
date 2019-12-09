@@ -61,6 +61,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  final List<String> demos = <String>['scaffoldDemo', 'textDemo', 'scaffoldDemo', 'HeroPage', 'LogoApp', 'animatedContainer'];
   @override
   Widget build(BuildContext context) {
     screenWidth = MediaQuery.of(context).size.width;
@@ -71,71 +72,32 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: SafeArea(
         child: Center(
-          child: SingleChildScrollView(
-            child: Column(
-              children: <Widget>[
-                RaisedButton(
-                  onPressed: () {
-                    navigateTo('scaffoldDemo');
-                  },
-                  child: Text('scaffoldDemo'),
-                ),
-                RaisedButton(
-                  onPressed: () {
-                    navigateTo('textDemo');
-                  },
-                  child: Text('textDemo', style: TextStyle(color: Colors.red),),
-                ),
-                RaisedButton(
-                  onPressed: () {
-                    navigateTo('HeroPage');
-                  },
-                  child: Text('HeroPage'),
-                ),
-                RaisedButton(
-                  child: Text('Logo Animation'),
-                  onPressed: () {
-                    navigateTo('LogoApp');
-                  },
-                ),
-                RaisedButton(
-                  child: Text('animatedContainer'),
-                  onPressed: () {
-                    navigateTo('animatedContainer');
-                  },
-                ),
-                RaisedButton(
-                  child: Text('safeArea'),
-                  onPressed: () {
-                    navigateTo('safeArea');
-                  },
-                ),
-                RaisedButton(
-                  child: Text('animationContainerColor'),
-                  onPressed: () {
-                    navigateTo('animationContainerColor');
-                  },
-                ),
-                RaisedButton(
-                  child: Text('animatedIconPage'),
-                  onPressed: () {
-                    navigateTo('animatedIconPage');
-                  },
-                ),
-                RaisedButton(
-                  child: Text('animatedList'),
-                  onPressed: () {
-                    navigateTo('animatedList');
-                  },
-                ),
-                RaisedButton(
-                  child: Text('animatedSwitch'),
-                  onPressed: () {
-                    navigateTo('animatedSwitch');
-                  },
-                )
-              ],
-            ),
+          child: ListView.separated(
+            padding: const EdgeInsets.all(8.0),
+            itemCount: demos.length,
+            itemBuilder: (BuildContext context, int index) {
+              return Row(
+                children: <Widget>[
+                  Container(
+                    child: Icon(Icons.access_alarm),
+                    width: 50,
+                  ),
+                  Expanded(
+                    child: Text(demos[index]),
+                    flex: 1,
+                  ),
+                  IconButton(
+                    icon: Icon(Icons.arrow_forward),
+                    onPressed: () {
+                      navigateTo(demos[index]);
+                    },
+                  )
+                ],
+              );
+            },
+            separatorBuilder: (BuildContext context, int index) {
+              return Divider();
+            }
           ),
         ),
       ),
