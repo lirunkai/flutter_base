@@ -20,6 +20,7 @@ import 'package:flutter_base/element/random_word_page.dart';
 // wrap
 import 'package:flutter_base/wrap/card.dart';
 import 'package:flutter_base/wrap/scaffold.dart';
+import 'package:flutter_base/wrap/scaffoldDemo2.dart';
 
 import 'package:english_words/english_words.dart';
 
@@ -31,24 +32,27 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        debugShowCheckedModeBanner: false,
-        title: 'Some Flutter Demo',
-        theme: ThemeData(primaryColor: Colors.white),
-        home: RandomWords(),
-        routes: {
-          'scaffoldDemo': (context) => ScaffoldDemo(),
-          'textDemo': (context) => TextDemo(),
-          'scaffoldDemo': (context) => ScaffoldDemo(),
-          'HeroPage': (context) => HeroPage(),
-          'LogoApp': (context) => LogoApp(),
-          'animatedContainer': (context) => AnimationContainerDemo(),
-          'animationContainerColor': (context) => AnimationContainerDemoColor(),
-          'animatedIconPage': (context) => AnimatedIconPage(),
-          'animatedList': (context) => AnimatedListPage(),
-          'safeArea': (context) => SafeAreaDemo(),
-          'animatedSwitch': (context) => AnimatedSwitcherPage(),
-          // 'randomWords': (context) => RandomWordsPage(),
-        });
+      debugShowCheckedModeBanner: false,
+      title: 'Some Flutter Demo',
+      // theme: ThemeData(primaryColor: Colors.white),
+      // home: RandomWords(),
+      theme: ThemeData(primarySwatch: Colors.blue),
+      home: MyHomePage(title: 'hello fuck\'n world'),
+      routes: {
+        'scaffoldDemo': (context) => ScaffoldDemo(),
+        'textDemo': (context) => TextDemo(),
+        'scaffoldDemo': (context) => ScaffoldDemo(),
+        'HeroPage': (context) => HeroPage(),
+        'LogoApp': (context) => LogoApp(),
+        'animatedContainer': (context) => AnimationContainerDemo(),
+        'animationContainerColor': (context) => AnimationContainerDemoColor(),
+        'animatedIconPage': (context) => AnimatedIconPage(),
+        'animatedList': (context) => AnimatedListPage(),
+        'safeArea': (context) => SafeAreaDemo(),
+        'animatedSwitch': (context) => AnimatedSwitcherPage(),
+        'count': (ccontext) => Count()
+      }
+    );
   }
 }
 
@@ -62,6 +66,10 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  final List<String> demos = <String>[
+    'scaffoldDemo', 'textDemo', 'scaffoldDemo', 'HeroPage', 'LogoApp', 'animatedContainer',
+    'count'
+  ];
   @override
   Widget build(BuildContext context) {
     screenWidth = MediaQuery.of(context).size.width;
@@ -72,75 +80,32 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: SafeArea(
         child: Center(
-          child: SingleChildScrollView(
-            child: Column(
-              children: <Widget>[
-                RaisedButton(
-                  onPressed: () {
-                    navigateTo('scaffoldDemo');
-                  },
-                  child: new Text('scaffoldDemo'),
-                ),
-                RaisedButton(
-                  onPressed: () {
-                    navigateTo('trayc');
-                  },
-                  child: Text(
-                    'textDemo',
-                    style: TextStyle(color: Colors.red),
+          child: ListView.separated(
+            padding: const EdgeInsets.all(8.0),
+            itemCount: demos.length,
+            itemBuilder: (BuildContext context, int index) {
+              return Row(
+                children: <Widget>[
+                  Container(
+                    child: Icon(Icons.access_alarm),
+                    width: 50,
                   ),
-                ),
-                RaisedButton(
-                  onPressed: () {
-                    navigateTo('HeroPage');
-                  },
-                  child: Text('HeroPage'),
-                ),
-                RaisedButton(
-                  child: Text('Logo Animation'),
-                  onPressed: () {
-                    navigateTo('LogoApp');
-                  },
-                ),
-                RaisedButton(
-                  child: Text('animatedContainer'),
-                  onPressed: () {
-                    navigateTo('animatedContainer');
-                  },
-                ),
-                RaisedButton(
-                  child: Text('safeArea'),
-                  onPressed: () {
-                    navigateTo('safeArea');
-                  },
-                ),
-                RaisedButton(
-                  child: Text('animationContainerColor'),
-                  onPressed: () {
-                    navigateTo('animationContainerColor');
-                  },
-                ),
-                RaisedButton(
-                  child: Text('animatedIconPage'),
-                  onPressed: () {
-                    navigateTo('animatedIconPage');
-                  },
-                ),
-                RaisedButton(
-                  child: Text('animatedList'),
-                  onPressed: () {
-                    navigateTo('animatedList');
-                  },
-                ),
-                RaisedButton(
-                  child: Text('animatedSwitch'),
-                  onPressed: () {
-                    navigateTo('animatedSwitch');
-                  },
-                ),
-                FlatButton(child: new RandomWords())
-              ],
-            ),
+                  Expanded(
+                    child: Text(demos[index]),
+                    flex: 1,
+                  ),
+                  IconButton(
+                    icon: Icon(Icons.arrow_forward),
+                    onPressed: () {
+                      navigateTo(demos[index]);
+                    },
+                  )
+                ],
+              );
+            },
+            separatorBuilder: (BuildContext context, int index) {
+              return Divider();
+            }
           ),
         ),
       ),
