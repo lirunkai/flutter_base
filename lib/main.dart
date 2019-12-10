@@ -171,7 +171,6 @@ class RandomWordsState extends State<RandomWords> {
   final _saved = new Set<WordPair>();
 
   Widget build(BuildContext context) {
-    final wordPair = new WordPair.random();
     return new Scaffold(
       appBar: new AppBar(
         title: new Text('hello fuck\'n world'),
