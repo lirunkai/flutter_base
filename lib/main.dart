@@ -32,27 +32,27 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Some Flutter Demo',
-      // theme: ThemeData(primaryColor: Colors.white),
-      // home: RandomWords(),
-      theme: ThemeData(primarySwatch: Colors.blue),
-      home: MyHomePage(title: 'hello fuck\'n world'),
-      routes: {
-        'scaffoldDemo': (context) => ScaffoldDemo(),
-        'textDemo': (context) => TextDemo(),
-        'scaffoldDemo': (context) => ScaffoldDemo(),
-        'HeroPage': (context) => HeroPage(),
-        'LogoApp': (context) => LogoApp(),
-        'animatedContainer': (context) => AnimationContainerDemo(),
-        'animationContainerColor': (context) => AnimationContainerDemoColor(),
-        'animatedIconPage': (context) => AnimatedIconPage(),
-        'animatedList': (context) => AnimatedListPage(),
-        'safeArea': (context) => SafeAreaDemo(),
-        'animatedSwitch': (context) => AnimatedSwitcherPage(),
-        'count': (ccontext) => Count()
-      }
-    );
+        debugShowCheckedModeBanner: false,
+        title: 'Some Flutter Demo',
+        // theme: ThemeData(primaryColor: Colors.white),
+        // home: RandomWords(),
+        theme: ThemeData(primarySwatch: Colors.blue),
+        home: MyHomePage(title: 'hello fuck\'n world'),
+        routes: {
+          'scaffoldDemo': (context) => ScaffoldDemo(),
+          'textDemo': (context) => TextDemo(),
+          'scaffoldDemo': (context) => ScaffoldDemo(),
+          'HeroPage': (context) => HeroPage(),
+          'LogoApp': (context) => LogoApp(),
+          'animatedContainer': (context) => AnimationContainerDemo(),
+          'animationContainerColor': (context) => AnimationContainerDemoColor(),
+          'animatedIconPage': (context) => AnimatedIconPage(),
+          'animatedList': (context) => AnimatedListPage(),
+          'safeArea': (context) => SafeAreaDemo(),
+          'animatedSwitch': (context) => AnimatedSwitcherPage(),
+          'count': (ccontext) => Count(),
+          'randomWordsPage': (ccontext) => RandomWordsPage(),
+        });
   }
 }
 
@@ -67,8 +67,14 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   final List<String> demos = <String>[
-    'scaffoldDemo', 'textDemo', 'scaffoldDemo', 'HeroPage', 'LogoApp', 'animatedContainer',
-    'count'
+    'scaffoldDemo',
+    'textDemo',
+    'scaffoldDemo',
+    'HeroPage',
+    'LogoApp',
+    'animatedContainer',
+    'count',
+    'randomWordsPage'
   ];
   @override
   Widget build(BuildContext context) {
@@ -81,32 +87,31 @@ class _MyHomePageState extends State<MyHomePage> {
       body: SafeArea(
         child: Center(
           child: ListView.separated(
-            padding: const EdgeInsets.all(8.0),
-            itemCount: demos.length,
-            itemBuilder: (BuildContext context, int index) {
-              return Row(
-                children: <Widget>[
-                  Container(
-                    child: Icon(Icons.access_alarm),
-                    width: 50,
-                  ),
-                  Expanded(
-                    child: Text(demos[index]),
-                    flex: 1,
-                  ),
-                  IconButton(
-                    icon: Icon(Icons.arrow_forward),
-                    onPressed: () {
-                      navigateTo(demos[index]);
-                    },
-                  )
-                ],
-              );
-            },
-            separatorBuilder: (BuildContext context, int index) {
-              return Divider();
-            }
-          ),
+              padding: const EdgeInsets.all(8.0),
+              itemCount: demos.length,
+              itemBuilder: (BuildContext context, int index) {
+                return Row(
+                  children: <Widget>[
+                    Container(
+                      child: Icon(Icons.access_alarm),
+                      width: 50,
+                    ),
+                    Expanded(
+                      child: Text(demos[index]),
+                      flex: 1,
+                    ),
+                    IconButton(
+                      icon: Icon(Icons.arrow_forward),
+                      onPressed: () {
+                        navigateTo(demos[index]);
+                      },
+                    )
+                  ],
+                );
+              },
+              separatorBuilder: (BuildContext context, int index) {
+                return Divider();
+              }),
         ),
       ),
       bottomNavigationBar:
@@ -155,7 +160,6 @@ class RandomWordsState extends State<RandomWords> {
       padding: const EdgeInsets.all(16.0),
       itemBuilder: (context, i) {
         if (i.isOdd) return new Divider();
-
         final index = i ~/ 2;
         if (index >= _suggestions.length) {
           _suggestions.addAll(generateWordPairs().take(10));
@@ -185,7 +189,7 @@ class RandomWordsState extends State<RandomWords> {
 
   void _pushSaved() {
     Navigator.of(context).push(new MaterialPageRoute(builder: (context) {
-      final titles = _saved.map((pair) {
+      final tiles = _saved.map((pair) {
         return new ListTile(
             title: new Text(
           pair.asPascalCase,
@@ -194,7 +198,7 @@ class RandomWordsState extends State<RandomWords> {
       });
       final divided = ListTile.divideTiles(
         context: context,
-        tiles: titles,
+        tiles: tiles,
       ).toList();
 
       return new Scaffold(
