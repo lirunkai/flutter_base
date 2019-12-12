@@ -16,6 +16,7 @@ import 'package:flutter_base/animation/animted_switch.dart';
 // element
 import 'package:flutter_base/element/text.dart';
 import 'package:flutter_base/element/random_word_page.dart';
+import 'package:flutter_base/element/radio.dart';
 
 // wrap
 import 'package:flutter_base/wrap/card.dart';
@@ -52,6 +53,7 @@ class MyApp extends StatelessWidget {
           'animatedSwitch': (context) => AnimatedSwitcherPage(),
           'count': (ccontext) => Count(),
           'randomWordsPage': (ccontext) => RandomWordsPage(),
+          'radioDemo': (context) => RadioDemo()
         });
   }
 }
@@ -74,7 +76,8 @@ class _MyHomePageState extends State<MyHomePage> {
     'LogoApp',
     'animatedContainer',
     'count',
-    'randomWordsPage'
+    'randomWordsPage',
+    'radioDemo'
   ];
   @override
   Widget build(BuildContext context) {
