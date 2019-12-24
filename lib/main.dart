@@ -17,11 +17,18 @@ import 'package:flutter_base/animation/animted_switch.dart';
 import 'package:flutter_base/element/text.dart';
 import 'package:flutter_base/element/random_word_page.dart';
 import 'package:flutter_base/element/radio.dart';
+import 'package:flutter_base/element/text_field.dart';
+import 'package:flutter_base/element/form.dart';
+import 'package:flutter_base/element/hero.dart';
 
 // wrap
 import 'package:flutter_base/wrap/card.dart';
 import 'package:flutter_base/wrap/scaffold.dart';
 import 'package:flutter_base/wrap/scaffoldDemo2.dart';
+import 'package:flutter_base/wrap/single_scroll.dart';
+import 'package:flutter_base/wrap/listen.dart';
+import 'package:flutter_base/wrap/drag.dart';
+
 
 import 'package:english_words/english_words.dart';
 
@@ -53,7 +60,13 @@ class MyApp extends StatelessWidget {
           'animatedSwitch': (context) => AnimatedSwitcherPage(),
           'count': (ccontext) => Count(),
           'randomWordsPage': (ccontext) => RandomWordsPage(),
-          'radioDemo': (context) => RadioDemo()
+          'radioDemo': (context) => RadioDemo(),
+          'textfieldDemo': (context) => TextFieldDemo(),
+          'formDemo': (context) => FormDemo(),
+          'singleScroll': (context) => SingleChildDemo(),
+          'listen': (context) => ListenDemo(),
+          'drag': (context) => DragDemo(),
+          'HeroA': (context) => HeroA()
         });
   }
 }
@@ -77,7 +90,13 @@ class _MyHomePageState extends State<MyHomePage> {
     'animatedContainer',
     'count',
     'randomWordsPage',
-    'radioDemo'
+    'radioDemo',
+    'textfieldDemo',
+    'formDemo',
+    'singleScroll',
+    'listen',
+    'drag',
+    'HeroA'
   ];
   @override
   Widget build(BuildContext context) {
